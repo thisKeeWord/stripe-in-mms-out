@@ -6,11 +6,11 @@ var Twilio = require('twilio')(Config.ACCOUNTSID, Config.AUTHTOKEN);
 var Texting = {};
 Texting.sendingText = sendingText;
 
-var sendingText = function(){
+function sendingText(req, res){
 
   Twilio.messages.create({
-    to: Config.cruzNum,
-    from: '+13345441690',
+    to: '+1' + req.body.phone,
+    from: Config.from,
     body: 'testiloveing',
     mediaUrl: 'http://littlecaesars.com/portals/0/Menu_CheesePizza.png'
   }, function(err, message) {
@@ -21,6 +21,6 @@ var sendingText = function(){
   });
 }
 
-sendingText();
+
 
 module.exports = Texting;
