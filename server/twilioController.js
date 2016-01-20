@@ -8,11 +8,12 @@ var fs = require('fs');
 var Texting = {};
 Texting.sendingText = sendingText;
 
-function sendingText(req, res, next){
+
+function sendingText(req, res){
 
   Twilio.messages.create({
-    to: Config.cruzNum,
-    from: '+13345441690',
+    to: '+1' + req.body.phone,
+    from: Config.from,
     body: 'testiloveing',
     mediaUrl: image[0]
   }, function(err, message) {
@@ -22,7 +23,6 @@ function sendingText(req, res, next){
     }
   })
 }
-
 
 
 
