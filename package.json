@@ -1,0 +1,19 @@
+{
+  "name": "stripe-in-mms-out",
+  "version": "1.0.0",
+  "description": "money in, mms out",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "path": "^0.12.7",
+    "stripe": "^4.2.0",
+    "twilio": "^2.8.0"
+  }
+}
