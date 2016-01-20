@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var sk = require('./../config.js').secretKey;
 var stripe = require("stripe")(sk);
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var fs = require('fs');
 var path = require('path');
 var Texting = require('./twilioController.js');
@@ -16,6 +16,17 @@ app.use(bodyParser.urlencoded());
 app.get('/', function(req,res) {
   res.sendFile(path.join(__dirname, './../client/index.html'));
 });
+
+app.get('/404', Texting.sendingText, function(req, res) {
+  fs.readFile('./client/errorText.html', function(err, html) {
+      if (err) {
+        throw err;
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.write(html)
+      res.end();
+    })
+})
 
 app.post("/stripe", function(request, response) {
   var phone = request.body.phone

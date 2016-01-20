@@ -2,25 +2,28 @@
 var Config = require('./../config.js');
 // require twilio module and create a REST client
 var Twilio = require('twilio')(Config.ACCOUNTSID, Config.AUTHTOKEN);
+var image = require('./../images/images.js');
+var fs = require('fs');
 
 var Texting = {};
 Texting.sendingText = sendingText;
 
-var sendingText = function(){
+function sendingText(req, res, next){
 
   Twilio.messages.create({
     to: Config.cruzNum,
     from: '+13345441690',
     body: 'testiloveing',
-    mediaUrl: 'http://littlecaesars.com/portals/0/Menu_CheesePizza.png'
+    mediaUrl: image[0]
   }, function(err, message) {
-    if (err) console.error(err);
+    if (err) next();
     else {
     console.log(message);
     }
-  });
+  })
 }
 
-sendingText();
+
+
 
 module.exports = Texting;
