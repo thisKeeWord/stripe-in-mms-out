@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="bower_components/skeleton/css/normalize.css">
+		<link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css">
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="one-half column" style="margin-top: 25%">
+					<form action="/stripe" method="POST">
+						<input type="tel" name="phone" autofocus = "autofocus" />
+						 <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+						<script src="https://checkout.stripe.com/checkout.js"
+							class="stripe-button"
+							data-key="pk_test_VRhelXTRnpAfGDqQ29t0Qlz5"
+							data-amount="100"
+							data-name="5 SMS sent"
+							data-description="THIS IS A DESCRIPTION YO"
+							data-image="https://33.media.tumblr.com/avatar_841c6758aa32_128.png"
+							data-locale="auto">
+						</script>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

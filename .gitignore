@@ -32,3 +32,15 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# config file
+config.js
+
+#stripe webhook to server
+stripeResponse.json
+
+#internal doc
+Day 1 Twilio Project.rtf
+
+#bower
+bower_components
