@@ -9,7 +9,7 @@ const cheerio = require('cheerio')
 // 	3. a callback fn to execute afterwords (to avoid async issues).
 // 	=> returns an err || an array of gif_urls
 
-let get_GIF_images = (queryString, numberOfPhotos, callback) => {
+const get_GIF_images = (queryString, numberOfPhotos, callback) => {
 	request('https://popkey.co/search/' + queryString, (reqErr, response, html) => {
 		let $ = cheerio.load(html)
 		let dataTiles = $('.tiles').children()
@@ -28,9 +28,9 @@ let get_GIF_images = (queryString, numberOfPhotos, callback) => {
 
 /* EXAMPLE
  * this function:
-	get_GIF_images('turkey', 2, (err, gif_urls) => console.log(gif_urls))
-	
-	returns this array:
+   get_GIF_images('turkey', 2, (err, gif_urls) => console.log(gif_urls))
+
+ * returns this array:
 	[ 'https://m.popkey.co/429a96/rzYmW_s-200x150.gif',
   'https://m.popkey.co/e44570/bg03q_s-200x150.gif' ]
 */

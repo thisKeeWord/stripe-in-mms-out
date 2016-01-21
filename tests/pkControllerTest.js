@@ -15,7 +15,7 @@ test('1 compare length to one given as function argument.', t => {
 
 test('2 that URLs received are not returning any errors', t => {
 			t.plan(28)
-			popKeyController.get_GIF_images('pizza', 28, (err, gif_urls) => {
+			popKeyController.get_GIF_images('tacos', 28, (err, gif_urls) => {
 				gif_urls.forEach(url => {
 					request(url, (error, response, body) => {
 						t.equal(error, null)
