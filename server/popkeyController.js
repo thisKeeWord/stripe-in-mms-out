@@ -25,6 +25,7 @@ const get_GIF_images = (queryString, numberOfPhotos, callback) => {
 	}) // END OF: request('popkey.co/search', fn)
 } // END OF: get_GIF_images
 
+
 /* EXAMPLE
  * this function:
    get_GIF_images('turkey', 2, (err, gif_urls) => console.log(gif_urls))
