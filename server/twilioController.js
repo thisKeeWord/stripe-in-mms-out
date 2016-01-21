@@ -8,17 +8,19 @@ var Texting = {};
 Texting.sendingText = sendingText;
 
 function sendingText(req, res){
-  Twilio.messages.create({
-    to: '+1' + req.body.phone,
-    from: Config.from,
-    body: 'testiloveing',
-    mediaUrl: image[Math.round(Math.random() * 4)],
-  }, function(err, message) {
-    if (err) console.error(err);
-    else {
-      console.log(message);
-    }
-  })
+  for (var i = 0; i < req.gif_urls.length; i++) {
+    Twilio.messages.create({
+      to: '+1' + req.body.phone,
+      from: Config.from,
+      body: 'testiloveing',
+      mediaUrl: req.gif_urls[i]
+    }, function(err, message) {
+      if (err) console.error(err);
+      else {
+        console.log(message);
+      }
+    })
+  }
 }
 
 
