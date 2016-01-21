@@ -9,7 +9,6 @@ const cheerio = require('cheerio')
 // 	3. a callback fn to execute afterwords (to avoid async issues).
 // 	=> returns an err || an array of gif_urls
 
-/*
 let get_GIF_images = (queryString, numberOfPhotos, callback) => {
 	request('https://popkey.co/search/' + queryString, (reqErr, response, html) => {
 		let $ = cheerio.load(html)
@@ -23,23 +22,6 @@ let get_GIF_images = (queryString, numberOfPhotos, callback) => {
 		}) //END OF: dataTiles.each(i, tile)
 		let err = reqErr || null;
 		callback(err, gif_urls)
-	}) // END OF: request('popkey.co/search', fn)
-} // END OF: get_GIF_images
-*/
-let get_GIF_images = (req, res, next) => {
-	request('https://popkey.co/search/' + req.body.topic, (reqErr, response, html) => {
-		let $ = cheerio.load(html)
-		let dataTiles = $('.tiles').children()
-		let gif_urls = []
-		dataTiles.each((i, tile) => {
-			if (i < req.body.pictureAmount) {
-				let src = $('img', tile)
-				gif_urls.push(src[0].attribs['data-animated'])
-			}
-		}) //END OF: dataTiles.each(i, tile)
-		let err = reqErr || null;
-		req.gif_urls = gif_urls;
-		next();
 	}) // END OF: request('popkey.co/search', fn)
 } // END OF: get_GIF_images
 
