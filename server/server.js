@@ -37,7 +37,7 @@ app.get('/', function(req,res) {
 
 app.post("/stripe", payment.createCharge, Texting.sendingText);
 
-app.listen(8080, function(){
+app.listen(process.env.PORT || 8080, function(){
   console.log('Server is lisening on port 8080');
 })
 https.listen(8081, function(err){
