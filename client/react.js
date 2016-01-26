@@ -15,11 +15,12 @@ var Giphy = React.createClass({
 
 // child component with scaper form
 var Scraper = React.createClass({
+
   getInitialState: function() {
-    return { toggle: false, formResult: false };
+    return { toggle: false, formResult: false, data: {} };
   },
 
-  postTwilio: function(data) {
+  post: function(data) {
     return $.ajax({
       type: 'POST',
       url: '/stripe',
@@ -40,32 +41,25 @@ var Scraper = React.createClass({
   // action on submission
   handle: function(e) {
     e.preventDefault();
-    var twilioData = {
-      pictureAmount: React.findDOMNode(this.refs.pictureAmount).value,
-      topic: React.findDOMNode(this.refs.topic).value,
-      phone: React.findDOMNode(this.refs.phone).value
-    };
-    this.setState({ toggle: true })
-    if (this.state.formResult === true) {
-      this.postTwilio(twilioData).done(function(res) {
+    if (this.state.toggle === false) {
+      this.state.data.pictureAmount = React.findDOMNode(this.refs.pictureAmount).value,
+      this.state.data.topic = React.findDOMNode(this.refs.topic).value,
+      this.state.data.phone = React.findDOMNode(this.refs.phone).value
+    }
+
+
+    if (this.state.formResult === false && this.state.toggle === true) {
+      this.state.data.dig = React.findDOMNode(this.refs.dig).value
+    }
+    if (this.state.formResult === false && this.state.toggle === true) {
+      this.post(data).done(function(res) {
       })
     }
-    // .bind(this);
+    this.setState({ toggle: true })
   },
 
   shouldComponentUpdate: function() {
-    return this.state.toggle === true;
-  },
-
-  trigger: function(e) {
-    var that = this;
-    e.preventDefault();
-    var stripeData = {
-      dig: React.findDOMNode(this.refs.dig).value
-    };
-    this.postStripe(stripeData).done(function() {
-      that.setState({ formResult: true })
-    })
+    return this.state.toggle === true && this.state.formResult === false;
   },
 
   // rendering form

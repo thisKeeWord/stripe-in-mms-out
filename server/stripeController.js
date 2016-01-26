@@ -6,11 +6,11 @@ var payment = {};
 payment.createCharge = createCharge;
 
 function createCharge(req, res, next){
-  console.log(req.body.stripeToken);
+  console.log(req.body);
   var charge = stripe.charges.create({
     amount: 100,
     currency: "usd",
-    source: req.body.stripeToken,
+    source: req.body.dig,
     description: "Example charge"
   }, function(err, charge) {
     if (err && err.type === 'StripeCardError') {
