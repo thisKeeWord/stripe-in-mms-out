@@ -9,6 +9,8 @@ var Texting = {};
 Texting.sendingText = sendingText;
 
 function sendingText(req, res){
+  //Limit total number of pictures to be 5 max
+  if(req.body.pictureAmount > 5) req.body.pictureAmount = 5
   Images.get_GIF_images(req.body.topic, req.body.pictureAmount, function(err, gif_urls) {
     for (var i = 0; i < gif_urls.length; i++) {
       Twilio.messages.create({
