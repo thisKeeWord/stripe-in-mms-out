@@ -17,9 +17,9 @@ function sendingText(req, res){
         body: 'testiloveing',
         mediaUrl: gif_urls[i]
       }, function(err, message) {
-        if (err) console.error(err);
+        if (err) console.error(err, message);
         else {
-          console.log(message);
+        //   console.log(message);
         }
       })
     }
