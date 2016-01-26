@@ -19,7 +19,7 @@ function sendingText(req, res){
       }, function(err, message) {
         if (err) console.error(err);
         else {
-          console.log(message);
+          // console.log(message);
         }
       })
     }
