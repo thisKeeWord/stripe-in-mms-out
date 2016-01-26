@@ -53,14 +53,13 @@ var Scraper = React.createClass({
   render: function() {
 
     return (
-      <form id="stripe" action="/stripe" method="POST">
+      <form id="stripe" onSubmit={this.handle}>
         send <input type="number" name="pictureAmount" ref="pictureAmount" placeholder="1"
         min="1" max="5" />&nbsp; imgs about:<br/>
         <input type="text" name="topic" placeholder="GIF Topic" ref="topic" /><br/>
         to my friend at:<br /><br />
         <input type="tel" name="phone" autofocus="autofocus" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" placeholder="(888) 888 - 8888" ref="phone" /><br/>
-        <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
-        <StripeCheckout amount={1000000} currency="USD" stripeKey="pk_test_VRhelXTRnpAfGDqQ29t0Qlz5" email="foo@bar.com" bitcoin={true} > </StripeCheckout>
+        <input type="submit" />
 
       </form>
 
