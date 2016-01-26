@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		<script src='https://code.jquery.com/jquery-2.2.0.min.js'></script>
 		<link rel="stylesheet" href="../bower_components/skeleton/css/normalize.css">
 		<link rel="stylesheet" href="../bower_components/skeleton/css/skeleton.css">
 		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -48,20 +49,31 @@
 	<script>
 
 // TODO: MVP of background img/gif rotation, performance is terrible though, must cache images
-		var gifArray = [
-			'https://media.giphy.com/media/raBbE1fizfZGE/giphy.gif',
-			'https://media.giphy.com/media/pRnUtEUEUyxoY/giphy.gif',
-				'https://media.giphy.com/media/QXagUlpya3yyQ/giphy.gif',
-				'https://m.popkey.co/429a28/1Zgpx.gif',
-				'https://media.giphy.com/media/Ywg4EIvQfdNmw/giphy.gif',
-		]
+		function getGifs(){
+			var gifArray = [
+				'https://media.giphy.com/media/raBbE1fizfZGE/giphy.gif',
+				'https://media.giphy.com/media/pRnUtEUEUyxoY/giphy.gif',
+					'https://media.giphy.com/media/QXagUlpya3yyQ/giphy.gif',
+					'https://m.popkey.co/429a28/1Zgpx.gif',
+					'https://media.giphy.com/media/Ywg4EIvQfdNmw/giphy.gif',
+			]
+			var gifs = [];
+			//preload  them images woo
+			for(var i = 0; i < gifArray.length; i++){
+				gifs[i] = new Image();
+				gifs[i].src = gifArray[i];
+			}
+			return gifs
+		}
 		var counter = 1;
+		var firstImg = new Image();
+		firstImg.src = 'https://media.giphy.com/media/raBbE1fizfZGE/giphy.gif';
+		var gifs = getGifs();
 		var body = document.getElementsByTagName("BODY")[0]
-		body.style.backgroundImage = 'url(' + gifArray[0] + ')';
+		body.style.backgroundImage = 'url(' + firstImg.src + ')';
 		setInterval(function() {
-			(counter >= gifArray.length - 1) ? counter = 0 : counter++
-			console.log(counter);
-			body.style.backgroundImage = 'url(' + gifArray[counter] + ')';
+			(counter >= gifs.length - 1) ? counter = 0 : counter++
+			body.style.backgroundImage = 'url(' + gifs[counter].src + ')';
 		}, 3500)
 	</script>
 </html>
