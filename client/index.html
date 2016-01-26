@@ -13,7 +13,7 @@
 	</head>
 	<style>
 		body {
-			background: #3498db;
+			background: #3498db no-repeat center center fixed;
 			background-size: cover;
 			color: white;
 			font-family: 'Montserrat', sans-serif;
@@ -35,6 +35,8 @@
 					to my friend at:<br /><br />
 					<input type="tel" name="phone" autofocus="autofocus" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" placeholder="(888) 888 - 8888" /><br/>
 					<noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+					<!-- Have to have submit button in order to validate form? -->
+					<input type = "submit" style="display:none">
 					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_VRhelXTRnpAfGDqQ29t0Qlz5" data-amount="100" data-name="5 SMS sent" data-description="THIS IS A DESCRIPTION YO" data-image="http://icons.iconarchive.com/icons/everaldo/crystal-clear/128/App-core-bomb-icon.png"
 					data-locale="auto"
 					data-panel-label=""
@@ -46,34 +48,5 @@
 			</div>
 		</div>
 	</body>
-	<script>
-
-// TODO: MVP of background img/gif rotation, performance is terrible though, must cache images
-		function getGifs(){
-			var gifArray = [
-				'https://media.giphy.com/media/raBbE1fizfZGE/giphy.gif',
-				'https://media.giphy.com/media/pRnUtEUEUyxoY/giphy.gif',
-					'https://media.giphy.com/media/QXagUlpya3yyQ/giphy.gif',
-					'https://m.popkey.co/429a28/1Zgpx.gif',
-					'https://media.giphy.com/media/Ywg4EIvQfdNmw/giphy.gif',
-			]
-			var gifs = [];
-			//preload  them images woo
-			for(var i = 0; i < gifArray.length; i++){
-				gifs[i] = new Image();
-				gifs[i].src = gifArray[i];
-			}
-			return gifs
-		}
-		var counter = 1;
-		var firstImg = new Image();
-		firstImg.src = 'https://media.giphy.com/media/raBbE1fizfZGE/giphy.gif';
-		var gifs = getGifs();
-		var body = document.getElementsByTagName("BODY")[0]
-		body.style.backgroundImage = 'url(' + firstImg.src + ')';
-		setInterval(function() {
-			(counter >= gifs.length - 1) ? counter = 0 : counter++
-			body.style.backgroundImage = 'url(' + gifs[counter].src + ')';
-		}, 3500)
-	</script>
+	<script src="main.js"> </script>
 </html>

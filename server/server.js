@@ -17,7 +17,9 @@ var https = require('https').Server(credentials, app);
 //add compression and filter out stuff that shouldnt be compressed
 app.use(compression({filter: shouldCompress}));
 app.use(bodyParser.urlencoded());
-app.use(express.static(path.join(__dirname, './../')));
+//Added static route for bower components
+app.use('/bower_components', express.static(path.join(__dirname, './../bower_components')))
+app.use(express.static(path.join(__dirname, './../client')));
 
 
 function shouldCompress(req, res) {
@@ -35,9 +37,10 @@ app.get('/', function(req,res) {
 
 app.post("/stripe", payment.createCharge, Texting.sendingText);
 
-app.listen(8080, function(){
+app.listen(process.env.PORT || 8080, function(){
   console.log('Server is lisening on port 8080');
 })
-https.listen(8081, function(){
-    console.log('Server is listening on port 8081');
+https.listen(8081, function(err){
+    if(err) console.error(err)
+    console.log('Server is listening on port 8080');
 })

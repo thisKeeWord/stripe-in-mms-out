@@ -1,0 +1,22 @@
+{
+  "name": "stripe-in-mms-out",
+  "description": "money in, mms out",
+  "main": "server/server.js",
+  "authors": [
+    "gcwelborn <gcruzwelborn@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gcwelborn/stripe-in-mms-out",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "^2.0.4"
+  }
+}
