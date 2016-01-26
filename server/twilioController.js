@@ -18,9 +18,9 @@ function sendingText(req, res){
         mediaUrl: gif_urls[i]
       }, function(err, message) {
         if (err) console.error(err, message);
-        else {
+        // else {
         //   console.log(message);
-        }
+        // }
       })
     }
   })

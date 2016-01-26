@@ -10,10 +10,11 @@
   "author": "",
   "license": "",
   "devDependencies": {
-    "colortape": "^0.1.1",
-    "tape": "^4.4.0",
     "chai": "*",
-    "mocha": "*"
+    "colortape": "^0.1.1",
+    "mocha": "*",
+    "supertest": "^1.1.0",
+    "tape": "^4.4.0"
   },
   "dependencies": {
     "body-parser": "^1.14.2",
@@ -25,5 +26,4 @@
     "stripe": "^4.2.0",
     "twilio": "^2.8.0"
   }
-
 }
