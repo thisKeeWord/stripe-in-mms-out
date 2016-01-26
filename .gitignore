@@ -44,3 +44,7 @@ Day 1 Twilio Project.rtf
 
 #bower
 bower_components
+
+#ssl certs and keys
+sslcerts
+server2.js
