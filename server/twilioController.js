@@ -1,5 +1,5 @@
 // twilio creds
-//var Config = require('./../config.js') || null;
+var Config = require('./../config.js') || null;
 // require twilio module and create a REST client
 var Twilio = require('twilio')(process.env.ACCOUNTSID || Config.ACCOUNTSID,
   process.env.AUTHTOKEN || Config.AUTHTOKEN);
