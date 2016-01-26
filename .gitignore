@@ -45,6 +45,9 @@ Day 1 Twilio Project.rtf
 #bower
 bower_components
 
+#ignore gifs folder (too big for github)
+client/gifs
+
 #ssl certs and keys
 sslcerts
 server2.js
