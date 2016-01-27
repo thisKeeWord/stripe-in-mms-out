@@ -22,21 +22,30 @@
 		input {
 			color: black;
 		}
+		#stripe{
+			background: linear-gradient(#7dc5ee,#008cdd 85%,#30a2e4)!important;
+			color: white;
+			font-size: 14px!important;
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
+			text-shadow: 0 -1px 0 rgba(0,0,0,0.25)!important;
+			box-shadow: inset 0 1px 0 rgba(255,255,255,0.25)!important;
+			border-color: #008cdd;
+		}
 	</style>
 
 	<body>
 		<div class="container" style="background-color: rgba(0, 0, 0, 0.5)">
 			<div class="row" style="margin-top: 15%; text-align: center">
 				<h1>Drop a GIF Bomb</h1>
-				<form action="/stripe" method="POST">
+				<form id="inputForm" action="/stripe" method="POST">
 					send <input type="number" name="pictureAmount" placeholder=1
 					min="1" max="5" required />&nbsp; imgs about:<br/>
-					<input type="text" name="topic" placeholder="GIF Topic" /><br/>
+					<input type="text" name="topic" placeholder="GIF Topic" required /><br/>
 					to my friend at:<br /><br />
 					<input type="tel" name="phone" autofocus="autofocus" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" placeholder="(888) 888 - 8888" required /><br/>
 					<noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
 					<!-- Have to have submit button in order to validate form? -->
-					<input type = "submit" style="display:none">
+					<input id="stripe" type="submit" value="Drop the Gifs">
 					<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_VRhelXTRnpAfGDqQ29t0Qlz5" data-amount="100" data-name="5 SMS sent" data-description="THIS IS A DESCRIPTION YO" data-image="App-core-bomb-icon.png"
 					data-locale="auto"
 					data-panel-label=""
@@ -48,5 +57,12 @@
 			</div>
 		</div>
 	</body>
+	<style>
+	/*Hide the actual stripe button, to prevent people from clicking on it
+	since form validation cannot be used with it;*/
+		.stripe-button-el{
+			display:none;
+		}
+	</style>
 	<script src="main.js"> </script>
 </html>
