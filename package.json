@@ -4,7 +4,11 @@
   "description": "money in, mms out",
   "main": "Gulpfile.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node_modules/.bin/gulp",
+=======
+    "start": "node server/server.js",
+>>>>>>> master
     "test": "node tests/pKControllerTest.js | colortape"
   },
   "author": "",
@@ -17,6 +21,7 @@
     "body-parser": "^1.14.2",
     "browserify": "^13.0.0",
     "cheerio": "^0.19.0",
+    "compression": "^1.6.1",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.6",

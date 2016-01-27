@@ -1,4 +1,4 @@
-var sk = require('./../config.js').secretKey;
+var sk = process.env.secretKey || require('./../config.js').secretKey;
 var stripe = require('stripe')(sk);
 var path = require('path');
 
