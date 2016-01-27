@@ -22,11 +22,7 @@ function sendingText(req, res){
       }, function(err, message) {
         if (err) console.error(err, message);
         else {
-<<<<<<< HEAD
-          console.log('message', message);
-=======
         //   console.log(message);
->>>>>>> master
         }
       })
     }
