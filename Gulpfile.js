@@ -28,7 +28,7 @@ function scripts() {
         console.log('Error with compiling components', err.message);
       })
       .pipe(source('bundle.js'))
-      .pipe(gulp.dest('./build/'));
+      .pipe(gulp.dest('./client/build'));
       console.log('Updated!', (Date.now() - updateStart) + 'ms');
     })
     // Create the initial bundle when starting the task
@@ -37,7 +37,7 @@ function scripts() {
       console.log('Error with compiling components', err.message);
     })
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('./build/'));
+    .pipe(gulp.dest('./client/build/'));
 }
 
 function serve() {

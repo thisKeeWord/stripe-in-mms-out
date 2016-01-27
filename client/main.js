@@ -54,9 +54,9 @@ var counter = 1;
 var firstImg = new Image();
 // choose a random image for the first image to load
 firstImg.src = gifControl.gifArray[Math.floor(Math.random() * gifControl.gifArray.length)];
-var gifs = gifControl.getGifs();
-var body = document.getElementsByTagName("BODY")[0]
+var body = document.getElementsByTagName("BODY")[0];
 body.style.backgroundImage = 'url(' + firstImg.src + ')';
+var gifs = gifControl.getGifs();
 setInterval(function() {
 	(counter >= gifs.length - 1) ? counter = 0 : counter++
 	body.style.backgroundImage = 'url(' + gifs[counter].src + ')';
