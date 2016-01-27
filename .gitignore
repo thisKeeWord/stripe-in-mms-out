@@ -47,6 +47,7 @@ bower_components
 
 #ignore gifs folder (too big for github)
 client/gifs
+gifdownloader.js
 
 #ssl certs and keys
 sslcerts
